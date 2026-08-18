@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.DS_Store
+Thumbs.db
+*.log
+.env
+
+# Perfil local de navegador usado apenas em tempo de execução
+.autotask/

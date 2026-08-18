@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Cadastro local de produtos para demonstração do AutoTask Bot.">
+    <title>AutoTask — Carregando</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="app-body">
+    <header class="app-header">
+        <a class="brand brand--horizontal" href="produtos.html" tabindex="-1" aria-label="AutoTask">
+            <img class="brand__logo" src="assets/logo.svg" alt="">
+            <span class="brand__name">AutoTask</span>
+        </a>
+        <div class="app-header__right">
+            <span>Sistema de Cadastro de Produtos</span>
+            <span class="avatar" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-5 0-9 2.5-9 5.5V22h18v-2.5C21 16.5 17 14 12 14Z"/></svg>
+            </span>
+        </div>
+    </header>
+
+    <div class="app-layout">
+        <aside class="sidebar">
+            <nav aria-label="Navegação do sistema">
+                <button class="sidebar-link sidebar-link--active" type="button" tabindex="-1">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5Z"/><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z"/></svg>
+                    Novo Produto
+                </button>
+                <button class="sidebar-link" type="button" tabindex="-1">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v4H4V4Zm0 6h16v4H4v-4Zm0 6h16v4H4v-4Z"/></svg>
+                    Produtos Cadastrados
+                </button>
+                <a id="logout-link" class="sidebar-link" href="index.html" tabindex="-1">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 17v-3H3v-4h7V7l5 5-5 5Zm9-14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7v-2h7V5h-7V3h7Z"/></svg>
+                    Sair
+                </a>
+            </nav>
+
+            <div class="sidebar-brand" aria-hidden="true">
+                <img src="assets/logo.svg" alt="">
+                <p>Automatize.<br>Simplifique.<br>Conquiste tempo.</p>
+            </div>
+        </aside>
+
+        <main class="content-shell">
+            <section aria-labelledby="product-title">
+                <div class="page-title">
+                    <div>
+                        <span class="eyebrow">Automação configurável</span>
+                        <h1 id="product-title">Cadastrar Produto</h1>
+                        <span class="title-line" aria-hidden="true"></span>
+                    </div>
+                    <span id="status-pill" class="status-pill">Aguardando automação</span>
+                </div>
+
+                <form id="product-form" class="product-card" novalidate>
+                    <div class="field field--codigo">
+                        <label for="codigo">Código</label>
+                        <input id="codigo" autofocus name="codigo" type="text" placeholder="Ex.: PRD001" required>
+                    </div>
+                    <div class="field field--marca">
+                        <label for="marca">Marca</label>
+                        <input id="marca" name="marca" type="text" placeholder="Ex.: Marca Exemplo" required>
+                    </div>
+                    <div class="field field--tipo">
+                        <label for="tipo">Tipo</label>
+                        <input id="tipo" name="tipo" type="text" placeholder="Ex.: Eletrônico" required>
+                    </div>
+                    <div class="field field--categoria">
+                        <label for="categoria">Categoria</label>
+                        <input id="categoria" name="categoria" type="text" placeholder="Ex.: Acessórios" required>
+                    </div>
+                    <div class="field field--preco">
+                        <label for="preco_unitario">Preço Unitário (R$)</label>
+                        <input id="preco_unitario" name="preco_unitario" type="number" step="0.01" min="0" placeholder="Ex.: 199.90" required>
+                    </div>
+                    <div class="field field--custo">
+                        <label for="custo">Custo (R$)</label>
+                        <input id="custo" name="custo" type="number" step="0.01" min="0" placeholder="Ex.: 120.50" required>
+                    </div>
+                    <div class="field field--obs">
+                        <label for="obs">Observação</label>
+                        <textarea id="obs" name="obs" rows="4" placeholder="Ex.: Observações do produto"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <p id="product-message" class="form-message form-message--success" role="status" aria-live="polite"></p>
+                        <button class="button button--primary" type="submit">
+                            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 16.2-3.5-3.5L4.1 14.1 9 19 20.3 7.7l-1.4-1.4L9 16.2Z"/></svg>
+                            Cadastrar
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="products-card" aria-labelledby="registered-title">
+                <div class="card-heading">
+                    <div class="card-heading__title">
+                        <h2 id="registered-title">Produtos Cadastrados</h2>
+                        <span id="product-count" class="count-badge">0</span>
+                    </div>
+                    <button id="clear-products" class="button button--ghost" type="button" tabindex="-1">Limpar demonstração</button>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Marca</th>
+                                <th>Tipo</th>
+                                <th>Categoria</th>
+                                <th>Preço Unitário</th>
+                                <th>Custo</th>
+                                <th>Observação</th>
+                                <th>Data</th>
+                            </tr>
+                        </thead>
+                        <tbody id="products-table-body"></tbody>
+                    </table>
+                    <div id="empty-state" class="empty-state">
+                        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M15 20h34l5 10v24H10V30l5-10Zm3 4-3 6h10l3 4h8l3-4h10l-3-6H18Zm-4 10v16h36V34h-9l-3 4H26l-3-4h-9Z"/></svg>
+                        <strong>Nenhum produto cadastrado ainda.</strong>
+                        <span>Os registros enviados pelo bot aparecerão aqui.</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="produtos.js"></script>
+</body>
+</html>

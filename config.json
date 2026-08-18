@@ -1,0 +1,144 @@
+{
+  "project": {
+    "name": "AutoTask Bot",
+    "version": "1.0.3"
+  },
+  "data": {
+    "csv_path": "produtos.csv",
+    "display_identifier": "codigo",
+    "required_columns": [
+      "codigo",
+      "marca",
+      "tipo",
+      "categoria",
+      "preco_unitario",
+      "custo",
+      "obs"
+    ],
+    "non_empty_columns": [
+      "codigo",
+      "marca",
+      "tipo",
+      "categoria",
+      "preco_unitario",
+      "custo"
+    ],
+    "empty_values": {
+      "obs": "Nenhuma"
+    }
+  },
+  "browser": {
+    "url": "http://127.0.0.1:8000/index.html?reset=1",
+    "launch_mode": "app",
+    "executable": "auto",
+    "suppress_default_browser_prompt": true,
+    "suppress_password_save_prompt": true,
+    "use_dedicated_profile": true,
+    "profile_directory": "%LOCALAPPDATA%\\AutoTaskBot\\BrowserProfile",
+    "dismiss_startup_prompts": true,
+    "startup_prompt_escape_presses": 2,
+    "startup_prompt_escape_interval": 0.15,
+    "startup_prompt_settle_seconds": 0.35,
+    "dismiss_post_login_prompts": true,
+    "post_login_prompt_escape_presses": 1,
+    "post_login_prompt_escape_interval": 0.12,
+    "post_login_prompt_settle_seconds": 0.25,
+    "extra_arguments": [],
+    "ready_title_contains": "AutoTask — Login",
+    "window_timeout_seconds": 15.0,
+    "close_existing_windows": true,
+    "existing_window_title_contains": "AutoTask",
+    "maximize_window": true,
+    "demo_server": {
+      "enabled": true,
+      "host": "127.0.0.1",
+      "port": 8000,
+      "directory": "site-demo"
+    }
+  },
+  "login": {
+    "enabled": true,
+    "window_title_contains": "AutoTask — Login",
+    "success_title_contains": "AutoTask — Produtos",
+    "success_timeout_seconds": 8.0,
+    "focus": {
+      "method": "current"
+    },
+    "fields": [
+      {
+        "source": "literal",
+        "value": "usuario@demo.com",
+        "tabs_after": 1
+      },
+      {
+        "source": "literal",
+        "value": "demo123",
+        "tabs_after": 1
+      }
+    ],
+    "submit": {
+      "method": "key",
+      "key": "enter"
+    }
+  },
+  "form": {
+    "window_title_contains": "AutoTask — Produtos",
+    "window_timeout_seconds": 4.0,
+    "focus": {
+      "method": "current"
+    },
+    "fields": [
+      {
+        "source": "column",
+        "name": "codigo",
+        "tabs_after": 1
+      },
+      {
+        "source": "column",
+        "name": "marca",
+        "tabs_after": 1
+      },
+      {
+        "source": "column",
+        "name": "tipo",
+        "tabs_after": 1
+      },
+      {
+        "source": "column",
+        "name": "categoria",
+        "tabs_after": 1
+      },
+      {
+        "source": "column",
+        "name": "preco_unitario",
+        "tabs_after": 1
+      },
+      {
+        "source": "column",
+        "name": "custo",
+        "tabs_after": 1
+      },
+      {
+        "source": "column",
+        "name": "obs",
+        "empty": "Nenhuma",
+        "tabs_after": 1
+      }
+    ],
+    "submit": {
+      "method": "key",
+      "key": "enter"
+    },
+    "confirmation": {
+      "method": "title_change",
+      "timeout_seconds": 4.0
+    }
+  },
+  "automation": {
+    "pause_seconds": 0.08,
+    "write_interval": 0.004,
+    "focus_settle_seconds": 0.18,
+    "start_countdown_seconds": 3,
+    "calibration_countdown_seconds": 5
+  }
+}

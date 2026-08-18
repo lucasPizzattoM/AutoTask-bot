@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Ambiente local de demonstração do AutoTask Bot.">
+    <title>AutoTask — Login</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-body">
+    <div class="login-decoration login-decoration--one" aria-hidden="true"></div>
+    <div class="login-decoration login-decoration--two" aria-hidden="true"></div>
+
+    <main class="login-shell">
+        <section class="login-card" aria-labelledby="login-title">
+            <a class="brand brand--centered" href="index.html" tabindex="-1" aria-label="AutoTask">
+                <img class="brand__logo brand__logo--large" src="assets/logo.svg" alt="">
+                <span class="brand__name">AutoTask</span>
+                <span class="brand__tagline">Sistema de Cadastro de Produtos</span>
+            </a>
+
+            <div class="login-heading">
+                <h1 id="login-title">Acesse sua conta</h1>
+                <p>Entre no ambiente demonstrativo para iniciar o cadastro.</p>
+            </div>
+
+            <form id="login-form" class="auth-form" autocomplete="off" novalidate>
+                <label for="email">E-mail</label>
+                <div class="input-shell">
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm0 3 8 5 8-5V7l-8 5-8-5v1Z"/></svg>
+                    <input id="email" autofocus name="email" type="email" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="usuario@demo.com" required>
+                </div>
+
+                <label for="password">Senha</label>
+                <div class="input-shell">
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M17 9h-1V7a4 4 0 1 0-8 0v2H7a2 2 0 0 0-2 2v9h14v-9a2 2 0 0 0-2-2Zm-7-2a2 2 0 1 1 4 0v2h-4V7Zm3 8.73V18h-2v-2.27a2 2 0 1 1 2 0Z"/></svg>
+                    <input id="password" name="password" type="password" autocomplete="new-password" placeholder="••••••••" required>
+                </div>
+
+                <button class="button button--primary button--wide" type="submit">
+                    <span>Entrar</span>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m13 5 7 7-7 7-1.4-1.4 4.6-4.6H4v-2h12.2l-4.6-4.6L13 5Z"/></svg>
+                </button>
+                <p id="login-message" class="form-message" role="status" aria-live="polite"></p>
+            </form>
+
+            <aside class="demo-credentials">
+                <strong>Credenciais de demonstração</strong>
+                <span>E-mail: <code>usuario@demo.com</code></span>
+                <span>Senha: <code>demo123</code></span>
+            </aside>
+        </section>
+
+        <footer>© 2026 AutoTask. Ambiente local de demonstração.</footer>
+    </main>
+
+    <script src="login.js"></script>
+</body>
+</html>
